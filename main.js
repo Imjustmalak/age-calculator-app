@@ -28,7 +28,7 @@ function validate() {
       i.style.borderColor = "red";
       parent.querySelector("small").innerText = "this field is required.";
       validator = false;
-    } else if (monthInp.value > 12 || monthInp.value<0) {
+    } else if (monthInp.value > 12 || monthInp.value<1) {
         monthInp.style.borderColor = "red";
         monthInp.parentElement.querySelector("small").innerText = "must be valid month.";
         validator = false;
@@ -37,7 +37,7 @@ function validate() {
       const month = parseInt(monthInp.value);
       const day = parseInt(dayInp.value);
       const daysInMonth = new Date(year, month, 0).getDate();
-      if (day > daysInMonth || day<0) {
+      if (day > daysInMonth || day<1) {
        dayInp.style.borderColor = "red";
         dayInp.parentElement.querySelector("small").innerText = "must be a valid date.";
         validator = false;
