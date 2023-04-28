@@ -62,33 +62,29 @@ function handleSubmit(e) {
       monthOtp.innerHTML = "00";
       yearOtp.innerHTML = "00";
     } else {
-      let d = parseInt(dayInp.value) - day;
-      let m = month - parseInt(monthInp.value);
-      let y = year - parseInt(yearInp.value);
-
+     
       if (dayInp.value > day) {
-        d = day + months[month - 1] - parseInt(dayInp.value);
-        m = parseInt(monthInp.value) - month - 1;
-      } else {
-        d = day - parseInt(dayInp.value);
-        m = month - parseInt(monthInp.value);
-      }
+        day = day + months[month - 1] ;
+        month =  month - 1;
+      } 
+      
 
-      if (parseInt(monthInp.value) > month) {
-        y = year - parseInt(yearInp.value) - 1;
-        m = 12 + m;
-      } else {
-        y = year - parseInt(yearInp.value);
-      }
+      if ((monthInp.value) > month) {
+       month=month+12;
+        year=year-1;
+      } 
+      const d=day-dayInp.value;
+      const m=month-monthInp.value;
+      const y=year-yearInp.value;
       
       let p = (year - parseInt(yearInp.value))/4;
       let result = Math.round(p);
       if(parseInt(monthInp.value) > 2) {
+        result--;}
 
-        result-=1;
-      }
+        
 
-      dayOtp.innerHTML = d + result;
+      dayOtp.innerHTML = d +result;
       monthOtp.innerHTML = m;
       yearOtp.innerHTML = y;
     }
