@@ -81,6 +81,17 @@ function handleSubmit(e) {
       let result = Math.round(p);
       if(parseInt(monthInp.value) > 2) {
         result--;}
+        if (m>=12){
+          y=y+1;
+          m=m-12;
+
+          
+        }
+        if(d>=30){
+          m=m+1;
+          d=d-30;
+
+        }
 
         
 
